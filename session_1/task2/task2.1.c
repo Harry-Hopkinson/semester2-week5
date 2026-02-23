@@ -26,13 +26,15 @@
 #include <stdio.h>
 #include <stdlib.h>  // Required for atof() function
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     float num1, num2;
     char operation;
     float result;
     
     // Check if the correct number of arguments is provided
-    if (argc != 4) {
+    if (argc != 4)
+    {
         printf("Usage: %s number1 operation number2\n", argv[0]);
         printf("Example: %s 5.0 + 3.5\n", argv[0]);
         printf("Operations: +, -, x, /\n");  // Note 'x' instead of '*'
@@ -46,11 +48,28 @@ int main(int argc, char *argv[]) {
     num2 = atof(argv[3]);  // Convert third argument to float
     
     // Complete your code here
-	switch(operation){
-		case :
+	switch(operation)
+    {
+		case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 == 0)
+            {
+                printf("Error, division by zero!\n");
+                return 1;
+            }
+            result = num1 / num2;
             break;
 		default:
 			printf("Operation not defined!\n");
+            break;
 	}
     
     printf("Result: %.2f\n", result);
