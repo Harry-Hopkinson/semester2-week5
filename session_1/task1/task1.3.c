@@ -2,8 +2,9 @@
 
 /*
  * Task 1.3
- * Write a C program that perform the same function as the following Python program.
-   
+ * Write a C program that perform the same function as the following Python
+ program.
+
    Python program:
    number = int(input("Enter a number: "))
    if (number%3==0) and (number%5==0):
@@ -11,12 +12,20 @@
    else:
        print("The number is not divisible by both 3 and 5")
  */
- 
+
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
+  int number;
 
-	// complete your code here
+  printf("Enter a number, any number... ");
+  scanf("%d", &number);
 
-	return 0;
+  if ((number % 3 == 0) && (number % 5 == 0))
+    printf("%i is divisible by 3 and 5.\n", number);
+  else
+    printf("%i is not divisible by 3 and 5.\n", number);
+
+  return 0;
 }

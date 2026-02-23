@@ -3,42 +3,40 @@
 /*
  * Task 1.1
  *
- * Write a C program that checks whether a user has sufficient account 
- * balance to complete a purchase. The program should compare the account 
- * balance with the purchase amount and determine if the transaction can be completed.
- * 
+ * Write a C program that checks whether a user has sufficient account
+ * balance to complete a purchase. The program should compare the account
+ * balance with the purchase amount and determine if the transaction can be
+ * completed.
+ *
  * Input
  * - account balance: a floating-point number
  * - purchase amount: a floating-point number
- * 
+ *
  * Output
- * - Print "Transaction Approved. Remaining balance xx.xx" if the balance is greater 
- *   than or equal to the purchase amount
+ * - Print "Transaction Approved. Remaining balance xx.xx" if the balance is
+ * greater than or equal to the purchase amount
  * - Otherwise, print "Insufficient Balance"
  */
 
 #include <stdio.h>
 
-int main(void) {
-	
-    float account_balance;
-	float purchase_amount;
-	
-	printf("Enter account balance: ");
-    scanf("%f", &account_balance);
-	
-	printf("Enter purchase amount: ");
-    scanf("%f", &purchase_amount);
-	
-	// Complete your code here
-	if (){  // todo
-		// todo
-		printf("Transaction Approved. Remaining balance %.2f\n", account_balance);
-	}
-	else{
-		printf("Insufficient Balance!\n");
-	}
+int main(void)
+{
+  float account_balance;
+  float purchase_amount;
 
-	return 0;
+  printf("Enter account balance: ");
+  scanf("%f", &account_balance);
+
+  printf("Enter purchase amount: ");
+  scanf("%f", &purchase_amount);
+
+  // Complete your code here
+  if (account_balance >= purchase_amount)
+    printf("Transaction Approved. Remaining balance %.2f\n",
+           account_balance - purchase_amount);
+  else
+    printf("Insufficient Balance!\n");
+
+  return 0;
 }
-
