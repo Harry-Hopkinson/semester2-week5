@@ -5,7 +5,8 @@
  * based on units consumed and customer type.
  *
  * Input:
- * - A floating-point number representing the number of electricity units consumed.
+ * - A floating-point number representing the number of electricity units
+ * consumed.
  * - An integer representing the customer type:
  *   1 → Domestic
  *   2 → Commercial
@@ -40,42 +41,62 @@
  * Total bill amount: 725.00
  *
  */
- 
+
 #include <stdio.h>
 
-int main(void) {
-    float units;
-    float bill = 0.0;
-    int customerType;
+int main(void)
+{
+  float units;
+  float bill = 0.0;
+  int customerType;
 
-    printf("Enter units consumed: ");
-    scanf("%f", &units);
+  printf("Enter units consumed: ");
+  scanf("%f", &units);
 
-    printf("Enter customer type (1-Domestic, 2-Commercial, 3-Industrial): ");
-    scanf("%d", &customerType);
+  printf("Enter customer type (1-Domestic, 2-Commercial, 3-Industrial): ");
+  scanf("%d", &customerType);
 
-    /* subtask 1: calculate base bill using slabs */
-	// complete your code here
-    if (units <= 100) {
-        bill = units * 2.0;
-		// to do
-    }
+  /* subtask 1: calculate base bill using slabs */
+  // complete your code here
+  if (units <= 100)
+  {
+    bill = units * 2.0;
+  }
+  else if (units <= 300)
+  {
+    bill = (100 * 2.0) + ((units - 100) * 3.5);
+  }
+  else
+  {
+    bill = (100 * 2.0) + (200 * 3.5) + ((units - 300) * 5.0);
+  }
 
-    /* subtask 2: apply surcharge based on customer type */
-	// complete your code here
-    switch (customerType) {
-        case 1:
-            // to do
-			break;
+  /* subtask 2: apply surcharge based on customer type */
+  // complete your code here
+  switch (customerType)
+  {
+    case 1:
+        printf("Customer type: Domestic\n");
+        break;
 
-        default:
-            printf("Invalid customer type\n");
-            return 1;
-    }
+    case 2:
+        printf("Customer type: Commercial\n");
+        bill *= 1.1;
+        break;
 
-    /* Output */
-    printf("Units consumed: %.2f\n", units);
-    printf("Total bill amount: %.2f\n", bill);
+    case 3:
+        printf("Customer type: Industrial\n");
+        bill *= 1.2;
+        break;
 
-    return 0;
+    default:
+        printf("Invalid customer type\n");
+        return 1;
+  }
+
+  /* Output */
+  printf("Units consumed: %.2f\n", units);
+  printf("Total bill amount: %.2f\n", bill);
+
+  return 0;
 }
