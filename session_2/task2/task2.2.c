@@ -7,12 +7,26 @@
  * - use fgets() + newline removal
  * - use strcmp for string comparison
  */
- 
- #include <stdio.h>
- #include <string.h>
- 
- int main(void) {
-	 
-	 
-	 return 0;
- }
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+  char message[100]; // 100 characters buffer
+
+  do {
+    printf("Enter a message (type 'quit' to exit): ");
+    fgets(message, sizeof(message), stdin); // read input from user
+
+    if (message[strlen(message) - 1] == '\n') // check if the last character is a newline
+    {
+      message[strlen(message) - 1] = '\0'; // replace newline with null terminator
+    }
+
+    printf("You entered: %s\n", message); // print the message back to the user
+
+  } while (strcmp(message, "quit") != 0); // 0 means successful match
+
+  return 0;
+}
