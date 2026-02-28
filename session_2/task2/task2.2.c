@@ -24,7 +24,7 @@ int main(void)
       message[strlen(message) - 1] = '\0'; // replace newline with null terminator
     }
 
-    printf("You entered: %s\n", message); // print the message back to the user
+    printf("You entered: %s\n", message);
 
   } while (strcmp(message, "quit") != 0); // 0 means successful match
 
