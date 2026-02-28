@@ -32,7 +32,32 @@ int main(int argc, char *argv[]) {
     float b = atof(argv[2]);
     float c = atof(argv[3]);
 	
-	//complete the rest of the code
-	
+	// complete the rest of the code
+    printf("Coefficients: a=%.2f, b=%.2f, c=%.2f\n", a, b, c);
+    if (a == 0) {
+        printf("Linear equation\n");
+        return 0;
+    }
+    float D = b * b - 4 * a * c;
+    printf("Determinant (D) = %.2f\n", D);
+
+    if (D > 0)
+    {
+        float root1 = (-b + sqrt(D)) / (2 * a);
+        float root2 = (-b - sqrt(D)) / (2 * a);
+        printf("Two distinct roots: %.2f and %.2f\n", root1, root2);
+    }
+    else if (D == 0)
+    {
+        float root = -b / (2 * a);
+        printf("Single root: %.2f\n", root);
+    }
+    else
+    {
+        float realPart = -b / (2 * a);
+        float imagPart = sqrt(-D) / (2 * a);
+        printf("Complex roots: %.2f + %.2fi and %.2f - %.2fi\n", realPart, imagPart, realPart, imagPart);
+    }
+    
 	return 0;
 }
